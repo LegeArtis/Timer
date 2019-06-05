@@ -1,21 +1,20 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
+<div class="main">
+  <div  class="timer">
+    <p>{{timer}}</p>
+  </div>
+
+    <button id="start" class="start" >Start/Stop</button>
+    <button id="wait" class="wait">Wait</button>
+    <button id="reset" class="reset">Reset</button>
+  <form #myForm="ngForm" id="setTime" (ngSubmit)="setTime(hours.value, minutes.value, seconds.value)" >
+    <label class="hours" for="hours">Set Hours</label>
+    <input ngModel  name="hours" id="hours" class="hours_input" type="number" placeholder="0" min="0" #hours>
+    <label class="minutes" for="minutes" >Set Minutes</label>
+    <input ngModel name="minutes" id="minutes" class="minutes_input" type="number" placeholder="0"  value="0" min="0" #minutes>
+    <label class="seconds" for="seconds">Set Seconds</label>
+    <input ngModel name="seconds" id="seconds" class="seconds_input" type="number" placeholder="0"  value="0" min="0" #seconds>
+    <input type="submit" class="setTime" value="Set Time">
+  </form>
 </div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/cli">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
 
 <router-outlet></router-outlet>

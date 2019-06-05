@@ -1,0 +1,100 @@
+.main {
+  display: grid;
+  grid-template: 120px repeat(5, 50px) / repeat(12, 1fr);
+}
+
+
+.timer {
+  align-items: end;
+  font-size: 1.5em;
+  background-color: beige;
+  grid-area: 1 / 6 / 2 / 8;
+  border-radius: 5px;
+  border: 2px solid rgba(0, 0, 0, 0.43);
+
+}
+
+p {
+  text-align: center;
+  margin: 0;
+  padding-top: 25%;
+}
+
+.start {
+  font-size: 18px;
+  font-weight: bold;
+  border-radius: 5px;
+  background-color: #52c550;
+  margin: 5px;
+  grid-area: 2 / 6 / 3 / 7;
+}
+
+.wait {
+  font-size: 18px;
+  font-weight: bold;
+  border-radius: 5px;
+  background-color: #52baff;
+  margin: 5px;
+  grid-area: 2 / 7 / 3 / 8;
+}
+
+.reset {
+  font-size: 18px;
+  font-weight: bold;
+  border-radius: 5px;
+  background-color: #b26241;
+  margin: 5px;
+  grid-area: 3 / 6 / 4 / 8;
+}
+
+form {
+  grid-area: 4 / 5 / 7 / 9;
+  display: grid;
+  grid-template: repeat(3, 1fr) / 40% 25% 35%;
+  font-size: 20px;
+}
+
+.hours_input {
+  margin:  10px 3px;
+  font-size: 20px;
+  text-align: right;
+  grid-area: 1 / 2 / 2 / 3;
+}
+
+.minutes_input {
+  margin:  10px 0;
+  font-size: 20px;
+  text-align: right;
+  grid-area: 2 / 2 / 3 / 3;
+}
+
+.seconds_input {
+  margin:  10px 0;
+  font-size: 20px;
+  text-align: right;
+  grid-area: 3 / 2 / 4 / 3;
+}
+
+.hours {
+  align-self: center;
+  grid-area: 1 / 1 / 2 / 2;
+}
+
+.minutes {
+  align-self: center;
+  grid-area: 2 / 1 / 3 / 2;
+}
+
+.seconds {
+  align-self: center;
+  grid-area: 3 / 1 / 4 / 2;
+}
+
+.setTime {
+  margin-left: 5px;
+  font-size: 18px;
+  font-weight: bold;
+  grid-area: 2 / 3 / 3 / 4;
+  border-radius: 5px;
+  background-color: #b27b89;
+}
