@@ -15,17 +15,26 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     const startClick = fromEvent(document.getElementById('start'), 'click');
-  //  const setTimeClick = fromEvent(document.getElementById('setTime'), 'click');
     startClick.subscribe(() => {
       const waitClick = fromEvent(document.getElementById('wait'), 'click');
       const resetClick = fromEvent(document.getElementById('reset'), 'click');
+      const stopClick = fromEvent(document.getElementById('start'), 'click');
+
+      stopClick.subscribe(() => {
+        this.time = this.settingTime;
+        this.secondsToTimerTime();
+      });
 
       resetClick.subscribe(() => {
         this.time = 0;
         this.timer = this.secondsToTimerTime();
       });
 
-      interval(1000).pipe(takeUntil(waitClick)).pipe(takeUntil(resetClick)).subscribe(() => {
+      interval(1000)
+        .pipe(takeUntil(waitClick))
+        .pipe(takeUntil(resetClick))
+        .pipe(takeUntil(stopClick))
+        .subscribe(() => {
           --this.time;
           this.timer = this.secondsToTimerTime();
       });
@@ -38,10 +47,6 @@ export class AppComponent implements OnInit {
    const hours = (Math.floor( this.time / ( 60 * 60 )) % 24);
 
    return `${hours < 10 ? '0' + hours : hours}: ${minutes < 10 ? '0' + minutes : minutes}: ${seconds < 10 ? '0' + seconds : seconds}`;
-  }
-
-  public registerForm(value) {
-   // console.log(value.value.hours + ' ' + value.value.minutes);
   }
 
   public setTime(hours, minutes, seconds) {
